@@ -118,7 +118,9 @@ fn spaceship_weapon_controls(
         return;
     }
 
-    let transform = query.single();
+    let Ok(transform) = query.get_single() else {
+        return;
+    };
 
     commands.spawn((
         MovingObjectBundle {

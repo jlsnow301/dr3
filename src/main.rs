@@ -3,7 +3,10 @@ use behavior::{
 };
 use bevy::prelude::*;
 use game::{asset_loader::AssetLoaderPlugin, schedule::SchedulePlugin, state::StatePlugin};
-use objects::{asteroids::AsteroidPlugin, camera::CameraPlugin, spaceship::SpaceShipPlugin};
+use objects::{
+    asteroids::AsteroidPlugin, camera::CameraPlugin, light::DirectionalLightPlugin,
+    spaceship::SpaceShipPlugin,
+};
 
 mod behavior;
 mod game;
@@ -18,6 +21,7 @@ fn main() {
         })
         .add_plugins(DefaultPlugins)
         // custom
+        .add_plugins(DirectionalLightPlugin)
         .add_plugins(SchedulePlugin)
         .add_plugins(StatePlugin)
         .add_plugins(AssetLoaderPlugin)
